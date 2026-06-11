@@ -110,7 +110,7 @@ lib/
 
 Un APK précompilé est disponible en cloud.
 
-**Lien Drive :** `app-release.apk`
+**Lien Drive :** `https://drive.google.com/drive/folders/1XLYQQ3R9xn-3a8U9GJmcdZwqUBHz6gex?usp=sharing`
 
 **Compte de test (mode Livreur par défaut) :**
 | Champ | Valeur |
