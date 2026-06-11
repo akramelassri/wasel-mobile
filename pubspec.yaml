@@ -1,0 +1,42 @@
+name: wasel
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.11.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^8.1.0
+  flutter_appauth: ^12.0.0
+  flutter_secure_storage: ^10.1.0
+  http: ^1.6.0
+  flutter_native_splash: ^2.4.7
+  flutter_map: ^8.3.0
+  latlong2: ^0.9.0
+  geolocator: ^14.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/wasel-logo.png
+    - assets/welcome-image.png
+    - assets/app-icon.png
+    - assets/splash-screen.png
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: false
+  image_path: "assets/app-icon.png"
+  
+  # Optional: Clean adaptive icon configuration for Android 8.0+
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/app-icon.png"

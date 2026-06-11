@@ -1,0 +1,11 @@
+flutter_native_splash:
+  # The background color of your splash screen (using your background hex)
+  color: "#FFFFFF" 
+  
+  # The path to your Wasel logo
+  image: assets/splash-screen.png 
+
+  # Android 12+ requires a specific configuration to look good
+  android_12:
+    color: "#FFFFFF"
+    image: assets/splash-screen.png
