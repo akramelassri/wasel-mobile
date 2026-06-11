@@ -108,7 +108,7 @@ lib/
 
 ## 📱 Test Rapide (sans compilation)
 
-Un APK précompilé est disponible à la racine du dépôt.
+Un APK précompilé est disponible en cloud.
 
 **Lien Drive :** `app-release.apk`
 

@@ -1,9 +1,12 @@
+// lib/screens/shared/settings_screen.dart
+
 import 'package:flutter/material.dart';
 import 'package:wasel/main.dart';
 import 'package:wasel/screens/welcome_screen.dart';
 import 'package:wasel/themes/colors.dart';
 import 'package:wasel/themes/text_styles.dart';
 import 'package:wasel/screens/driver/profile_screen.dart';
+import 'package:wasel/screens/client/profile_screen.dart'; // Added Client Profile
 import 'package:wasel/screens/driver/wallet_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -25,7 +28,7 @@ class SettingsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: surfaceColor,
         elevation: 0,
-        title: const Text('Settings'),
+        title: Text('Settings', style: headingText),
       ),
       body: SafeArea(
         child: Padding(
@@ -33,24 +36,50 @@ class SettingsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              const SizedBox(height: 16),
               ListTile(
-                leading: const Icon(Icons.person_rounded, color: secondaryColor),
+                contentPadding: EdgeInsets.zero,
+                leading: const Icon(
+                  Icons.person_rounded,
+                  color: secondaryColor,
+                ),
                 title: Text('My Profile', style: labelText),
-                trailing: const Icon(Icons.chevron_right_rounded, color: secondaryColor),
+                trailing: const Icon(
+                  Icons.chevron_right_rounded,
+                  color: secondaryColor,
+                ),
                 onTap: () => Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (_) => const DriverProfileScreen()),
+                  MaterialPageRoute(
+                    // 🚨 Dynamically route based on mode
+                    builder: (_) => isDriver
+                        ? const DriverProfileScreen()
+                        : const ClientProfileScreen(),
+                  ),
                 ),
               ),
-              ListTile(
-                leading: const Icon(Icons.account_balance_wallet_rounded, color: secondaryColor),
-                title: Text('My Wallet', style: labelText),
-                trailing: const Icon(Icons.chevron_right_rounded, color: secondaryColor),
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => const DriverWalletScreen()),
+
+              // 🚨 Only render the Wallet tile if in Driver mode
+              if (isDriver)
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(
+                    Icons.account_balance_wallet_rounded,
+                    color: secondaryColor,
+                  ),
+                  title: Text('My Wallet', style: labelText),
+                  trailing: const Icon(
+                    Icons.chevron_right_rounded,
+                    color: secondaryColor,
+                  ),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const DriverWalletScreen(),
+                    ),
+                  ),
                 ),
-              ),
+
               const Spacer(),
               OutlinedButton.icon(
                 onPressed: onModeSwitch,
@@ -64,7 +93,7 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 14),
-                  side: BorderSide(color: surfaceVariant),
+                  side: const BorderSide(color: surfaceVariant),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
