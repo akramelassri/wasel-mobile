@@ -14,19 +14,19 @@ L'application propose une **interface unifiée** permettant de basculer libremen
 
 | Écran de bienvenue | Paramètres |
 |:---:|:---:|
-| ![Connexion](assets/screenshots/welcome_screen.jpeg) | ![Paramètres](assets/screenshots/settings_screen.jpeg) |
+| ![Connexion](screenshots/welcome_screen.jpeg) | ![Paramètres](screenshots/settings_screen.jpeg) |
 
 ### Mode Client
 
 | Créer une livraison | Mes demandes | Détail d'une livraison | Historique |
 |:---:|:---:|:---:|:---:|
-| ![Créer une livraison](assets/screenshots/client_home_screen.jpeg) | ![Mes demandes](assets/screenshots/client_requests_screen.jpeg) | ![Détail livraison](assets/screenshots/client_specific_request_screen.jpeg) | ![Historique](assets/screenshots/client_history_screen.jpeg) |
+| ![Créer une livraison](screenshots/client_home_screen.jpeg) | ![Mes demandes](screenshots/client_requests_screen.jpeg) | ![Détail livraison](screenshots/client_specific_requests_screen.jpeg) | ![Historique](screenshots/client_history_screen.jpeg) |
 
 ### Mode Livreur
 
 | Missions disponibles | Mes courses | Détail d'une mission | Profil | Portefeuille |
 |:---:|:---:|:---:|:---:|:---:|
-| ![Missions disponibles](assets/screenshots/driver_home_screen.jpeg) | ![Mes courses](assets/screenshots/driver_requests_screen.jpeg) | ![Détail mission](assets/screenshots/driver_specific_request_screen.jpeg) | ![Profil](assets/screenshots/driver_profile_screen.jpeg) | ![Portefeuille](assets/screenshots/driver_wallet_screen.jpeg) |
+| ![Missions disponibles](screenshots/driver_home_screen.jpeg) | ![Mes courses](screenshots/driver_requets_screen.jpeg) | ![Détail mission](screenshots/driver_specific_requests_screen.jpeg) | ![Profil](screenshots/driver_profile_screen.jpeg) | ![Portefeuille](screenshots/driver_wallet_screen.jpeg) |
 
 ---
 
@@ -110,7 +110,7 @@ lib/
 
 Un APK précompilé est disponible à la racine du dépôt.
 
-**Fichier :** `app-release.apk`
+**Lien Drive :** `app-release.apk`
 
 **Compte de test (mode Livreur par défaut) :**
 | Champ | Valeur |
@@ -146,6 +146,11 @@ flutter pub get
 **3. Vérifier la configuration d'environnement**
 
 Ouvrez `lib/config.dart` et vérifiez que l'URL de l'API et l'endpoint Keycloak pointent vers le bon environnement (staging par défaut).
+
+Si vous testez sur un appareil Android physique avec un backend local, redirigez le port :
+```bash
+adb reverse tcp:5000 tcp:5000
+```
 
 **4. Activer la localisation**
 
